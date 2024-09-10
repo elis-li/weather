@@ -36,6 +36,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ListView sample',
       theme: ThemeData(
         primarySwatch: Colors.amber,
