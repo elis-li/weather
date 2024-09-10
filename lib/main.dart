@@ -30,7 +30,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
     Weather(DateTime.now(), 20, 90, "04d"),
     Weather(DateTime.now().add(Duration(hours: 3)), 23, 50, "03d"),
     Weather(DateTime.now().add(Duration(hours: 6)), 25, 50, "02d"),
-    Weather(DateTime.now().add(Duration(hours: 9)), 28, 50, "01d")
+    Weather(DateTime.now().add(Duration(hours: 9)), 28, 50, "01d"),
   ];
 
   @override
@@ -39,16 +39,17 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
       debugShowCheckedModeBanner: false,
       title: 'ListView sample',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.blue,
       ),
       home: Scaffold(
           appBar: AppBar(
             title: Text('Weather forecast'),
           ),
-          body: ListView(
-              children: weatherForecast.map((Weather weather) {
-            return WeatherListItem(weather);
-          }).toList())),
+          body: ListView.builder(
+              itemCount: weatherForecast.length,
+              itemBuilder: (BuildContext context, int index) {
+                return WeatherListItem(weatherForecast[index]);
+          })),
     );
   }
 }
